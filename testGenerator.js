@@ -42,6 +42,7 @@ exports.testGenerator = function (
   rep7
 ) {
   const data = [];
+  var result = { answer: [] };
   switch (license) {
     case "A1":
       //Khai niem 1 cau
@@ -112,7 +113,44 @@ exports.testGenerator = function (
       for (let j = 0; j < 7; j++) {
         data.push(randomAnswer(rep7.data[sahinhList[j]]));
       }
-      response.send(heapSort.sortByOrder(data));
+
+      //Xep lai thu tu
+      heapSort.sortByOrder(data);
+
+      //Tao dap an
+      for (let i = 0; i < data.length; i++) {
+        switch (data[i].answer.length) {
+          case 2:
+            if (data[i].answer[0][1] == true) {
+              Array.prototype.push.apply(result.answer, ["A"]);
+            } else if (data[i].answer[1][1] == true) {
+              Array.prototype.push.apply(result.answer, ["B"]);
+            }
+            break;
+          case 3:
+            if (data[i].answer[0][1] == true) {
+              Array.prototype.push.apply(result.answer, ["A"]);
+            } else if (data[i].answer[1][1] == true) {
+              Array.prototype.push.apply(result.answer, ["B"]);
+            } else if (data[i].answer[2][1] == true) {
+              Array.prototype.push.apply(result.answer, ["C"]);
+            }
+            break;
+          case 4:
+            if (data[i].answer[0][1] == true) {
+              Array.prototype.push.apply(result.answer, ["A"]);
+            } else if (data[i].answer[1][1] == true) {
+              Array.prototype.push.apply(result.answer, ["B"]);
+            } else if (data[i].answer[2][1] == true) {
+              Array.prototype.push.apply(result.answer, ["C"]);
+            } else if (data[i].answer[3][1] == true) {
+              Array.prototype.push.apply(result.answer, ["D"]);
+            }
+        }
+      }
+      data.unshift(result);
+      response.send(data);
+
       break;
   }
 };

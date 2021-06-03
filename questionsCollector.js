@@ -6,6 +6,7 @@ const heapSort = require("./heapSort");
 
 exports.getQuestionByType = function (response, license, type) {
   var data = [];
+  var result = { answer: [] };
   const source = [];
   switch (type) {
     case "Tạo đề":
@@ -70,23 +71,147 @@ exports.getQuestionByType = function (response, license, type) {
             Array.prototype.push.apply(data, rep1.data);
             Array.prototype.push.apply(data, rep2.data);
             Array.prototype.push.apply(data, rep3.data);
-            response.send(heapSort.sortByOrder(data));
+            heapSort.sortByOrder(data);
+            for (let i = 0; i < data.length; i++) {
+              switch (data[i].answer.length) {
+                case 2:
+                  if (data[i].answer[0][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["A"]);
+                  } else if (data[i].answer[1][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["B"]);
+                  }
+                  break;
+                case 3:
+                  if (data[i].answer[0][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["A"]);
+                  } else if (data[i].answer[1][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["B"]);
+                  } else if (data[i].answer[2][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["C"]);
+                  }
+                  break;
+                case 4:
+                  if (data[i].answer[0][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["A"]);
+                  } else if (data[i].answer[1][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["B"]);
+                  } else if (data[i].answer[2][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["C"]);
+                  } else if (data[i].answer[3][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["D"]);
+                  }
+              }
+            }
+            data.unshift(result);
+            response.send(data);
             break;
           case "Văn hóa và đạo đức":
             Array.prototype.push.apply(data, rep1.data);
-            response.send(heapSort.sortByOrder(data));
-            break;
-          case "Kĩ thuật lái xe":
-            Array.prototype.push.apply(data, rep1.data);
-            response.send(heapSort.sortByOrder(data));
+            heapSort.sortByOrder(data);
+            for (let i = 0; i < data.length; i++) {
+              switch (data[i].answer.length) {
+                case 2:
+                  if (data[i].answer[0][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["A"]);
+                  } else if (data[i].answer[1][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["B"]);
+                  }
+                  break;
+                case 3:
+                  if (data[i].answer[0][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["A"]);
+                  } else if (data[i].answer[1][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["B"]);
+                  } else if (data[i].answer[2][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["C"]);
+                  }
+                  break;
+                case 4:
+                  if (data[i].answer[0][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["A"]);
+                  } else if (data[i].answer[1][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["B"]);
+                  } else if (data[i].answer[2][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["C"]);
+                  } else if (data[i].answer[3][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["D"]);
+                  }
+              }
+            }
+            data.unshift(result);
+            response.send(data);
             break;
           case "Biển báo":
             Array.prototype.push.apply(data, rep1.data);
-            response.send(heapSort.sortByOrder(data));
+            heapSort.sortByOrder(data);
+            for (let i = 0; i < data.length; i++) {
+              switch (data[i].answer.length) {
+                case 2:
+                  if (data[i].answer[0][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["A"]);
+                  } else if (data[i].answer[1][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["B"]);
+                  }
+                  break;
+                case 3:
+                  if (data[i].answer[0][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["A"]);
+                  } else if (data[i].answer[1][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["B"]);
+                  } else if (data[i].answer[2][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["C"]);
+                  }
+                  break;
+                case 4:
+                  if (data[i].answer[0][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["A"]);
+                  } else if (data[i].answer[1][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["B"]);
+                  } else if (data[i].answer[2][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["C"]);
+                  } else if (data[i].answer[3][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["D"]);
+                  }
+              }
+            }
+            data.unshift(result);
+            response.send(data);
             break;
           case "Sa hình":
             Array.prototype.push.apply(data, rep1.data);
-            response.send(heapSort.sortByOrder(data));
+            heapSort.sortByOrder(data);
+            for (let i = 0; i < data.length; i++) {
+              switch (data[i].answer.length) {
+                case 2:
+                  if (data[i].answer[0][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["A"]);
+                  } else if (data[i].answer[1][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["B"]);
+                  }
+                  break;
+                case 3:
+                  if (data[i].answer[0][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["A"]);
+                  } else if (data[i].answer[1][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["B"]);
+                  } else if (data[i].answer[2][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["C"]);
+                  }
+                  break;
+                case 4:
+                  if (data[i].answer[0][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["A"]);
+                  } else if (data[i].answer[1][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["B"]);
+                  } else if (data[i].answer[2][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["C"]);
+                  } else if (data[i].answer[3][1] == true) {
+                    Array.prototype.push.apply(result.answer, ["D"]);
+                  }
+              }
+            }
+            data.unshift(result);
+            response.send(data);
             break;
           default:
           // code block
