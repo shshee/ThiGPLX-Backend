@@ -19,9 +19,9 @@ function heapify(arr, n, i) {
 
   // If largest is not root
   if (largest != i) {
-    var temp = arr[i].order.$numberInt;
-    arr[i].order.$numberInt = arr[largest].order.$numberInt;
-    arr[largest].order.$numberInt = temp;
+    var temp = arr[i];
+    arr[i] = arr[largest];
+    arr[largest] = temp;
     // Recursively heapify the affected sub-tree
     heapify(arr, n, largest);
   }
@@ -35,9 +35,9 @@ function heapSort(arr, n) {
   // One by one extract an element from heap
   for (let i = n - 1; i > 0; i--) {
     // Move current root to end
-    var temp = arr[0].order.$numberInt;
-    arr[0].order.$numberInt = arr[i].order.$numberInt;
-    arr[i].order.$numberInt = temp;
+    var temp = arr[0];
+    arr[0] = arr[i];
+    arr[i] = temp;
 
     // call max heapify on the reduced heap
     heapify(arr, i, 0);

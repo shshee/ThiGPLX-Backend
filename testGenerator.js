@@ -1,4 +1,5 @@
 const heapSort = require("./heapSort");
+const ansGenerator = require("./answerGenerator").answerGenerator;
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -33,13 +34,13 @@ function randomAnswer(object) {
 exports.testGenerator = function (
   response,
   license,
-  rep1,
-  rep2,
-  rep3,
-  rep4,
-  rep5,
-  rep6,
-  rep7
+  rep1, //Khai niem
+  rep2, //Quy tac
+  rep3, //Toc do va khoang cach
+  rep4, //Van hoa va dao duc
+  rep5, //Ki thuat lai xe
+  rep6, //Bien bao
+  rep7 //Sa hinh
 ) {
   const data = [];
   var result = { answer: [] };
@@ -118,37 +119,7 @@ exports.testGenerator = function (
       heapSort.sortByOrder(data);
 
       //Tao dap an
-      for (let i = 0; i < data.length; i++) {
-        switch (data[i].answer.length) {
-          case 2:
-            if (data[i].answer[0][1] == true) {
-              Array.prototype.push.apply(result.answer, ["A"]);
-            } else if (data[i].answer[1][1] == true) {
-              Array.prototype.push.apply(result.answer, ["B"]);
-            }
-            break;
-          case 3:
-            if (data[i].answer[0][1] == true) {
-              Array.prototype.push.apply(result.answer, ["A"]);
-            } else if (data[i].answer[1][1] == true) {
-              Array.prototype.push.apply(result.answer, ["B"]);
-            } else if (data[i].answer[2][1] == true) {
-              Array.prototype.push.apply(result.answer, ["C"]);
-            }
-            break;
-          case 4:
-            if (data[i].answer[0][1] == true) {
-              Array.prototype.push.apply(result.answer, ["A"]);
-            } else if (data[i].answer[1][1] == true) {
-              Array.prototype.push.apply(result.answer, ["B"]);
-            } else if (data[i].answer[2][1] == true) {
-              Array.prototype.push.apply(result.answer, ["C"]);
-            } else if (data[i].answer[3][1] == true) {
-              Array.prototype.push.apply(result.answer, ["D"]);
-            }
-        }
-      }
-      data.unshift(result);
+      data.unshift(ansGenerator(data));
       response.send(data);
 
       break;
