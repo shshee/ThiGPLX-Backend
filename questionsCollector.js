@@ -28,27 +28,11 @@ exports.getQuestionByType = function (response, license, type) {
         axios.get(encodeURI(url + "?type=Tốc độ và khoảng cách")),
       ]);
       break;
-    case "Văn hóa và đạo đức":
-      Array.prototype.push.apply(source, [
-        axios.get(encodeURI(url + "?type=" + type)),
-      ]);
-    case "Kĩ thuật lái xe":
-      Array.prototype.push.apply(source, [
-        axios.get(encodeURI(url + "?type=" + type)),
-      ]);
-      break;
-    case "Biển báo":
-      Array.prototype.push.apply(source, [
-        axios.get(encodeURI(url + "?type=" + type)),
-      ]);
-      break;
-    case "Sa hình":
-      Array.prototype.push.apply(source, [
-        axios.get(encodeURI(url + "?type=" + type)),
-      ]);
-      break;
     default:
-    // code block
+      Array.prototype.push.apply(source, [
+        axios.get(encodeURI(url + "?type=" + type)),
+      ]);
+      break;
   }
   axios
     .all(source)
@@ -76,31 +60,12 @@ exports.getQuestionByType = function (response, license, type) {
             data.unshift(ansGenerator(data));
             response.send(data);
             break;
-          case "Văn hóa và đạo đức":
-            Array.prototype.push.apply(data, rep1.data);
-            heapSort.sortByOrder(data);
-            data.unshift(ansGenerator(data));
-            response.send(data);
-            break;
-          case "Kĩ thuật lái xe":
-            Array.prototype.push.apply(data, rep1.data);
-            heapSort.sortByOrder(data);
-            data.unshift(ansGenerator(data));
-            response.send(data);
-            break;
-          case "Biển báo":
-            Array.prototype.push.apply(data, rep1.data);
-            heapSort.sortByOrder(data);
-            data.unshift(ansGenerator(data));
-            response.send(data);
-            break;
-          case "Sa hình":
-            Array.prototype.push.apply(data, rep1.data);
-            heapSort.sortByOrder(data);
-            data.unshift(ansGenerator(data));
-            response.send(data);
-            break;
           default:
+            Array.prototype.push.apply(data, rep1.data);
+            heapSort.sortByOrder(data);
+            data.unshift(ansGenerator(data));
+            response.send(data);
+            break;
           // code block
         }
       })

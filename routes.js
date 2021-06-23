@@ -17,6 +17,12 @@ const router = (app) => {
   app.get("/A1/TaoDe", (request, response) => {
     questionCollect.getQuestionByType(response, "A1", "Tạo đề");
   });
+  app.get("/A1/ToanBo", (request, response) => {
+    questionCollect.getQuestionByType(response, "A1", "All");
+  });
+  app.get("/A1/DiemLiet", (request, response) => {
+    questionCollect.getQuestionByType(response, "A1", "Liet");
+  });
   app.get("/A1/KhaiNiemQuyTac", (request, response) => {
     questionCollect.getQuestionByType(response, "A1", "Khái niệm và quy tắc");
   });
