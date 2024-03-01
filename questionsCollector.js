@@ -1,6 +1,5 @@
 const axios = require("axios");
-const url =
-  "https://webhooks.mongodb-realm.com/api/client/v2.0/app/thigplx-ofrhb/service/thiGPLXapi/incoming_webhook/questionAPI";
+const url = "https://data.mongodb-api.com/app/thigplx-ofrhb/endpoint/questionAPI";
 const generator = require("./testGenerator");
 const heapSort = require("./heapSort");
 const ansGenerator = require("./answerGenerator").answerGenerator;
